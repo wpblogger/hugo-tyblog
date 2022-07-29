@@ -1,0 +1,6 @@
+/public/
+/exampleSite/public/
+/exampleSite/resources/_gen/
+/node_modules/
+.DS_Store
+.nova/

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+{{- partial "head.html" . }}
+<body>
+    {{/* partial "debug.html" . */}}
+    {{ partial "header.html" . }}
+    <div class="theme-fake-bg">
+        <div class="theme-section">
+            <div class="section-content">
+                {{- block "main" . }}{{- end }}
+            </div>
+            {{- block "footer" . }}
+                <footer class="theme-footer">
+                </footer>
+            {{- end -}}
+        </div>
+    </div>
+    {{- partial "custom_body.html" . -}}
+</body>
+</html>

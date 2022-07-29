@@ -1,0 +1,47 @@
+<title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+
+{{ with .Site.Params.favicon -}}
+<link rel="shortcut icon" href="{{ . | absURL }}" type="image/png">
+{{ end -}}
+
+<meta name="generator" content="Hugo {{ hugo.Version }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}">
+
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ if and (.IsPage) (eq .Params.hidden true) -}}
+<meta name="robots" content="noindex">
+{{ end -}}
+
+{{ range .Param "preloadFonts" }}
+<link rel="preload" href="{{ . }}" as="font">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+{{- partial "resource.html" (dict "context" $ "type" "css" "filename" "css/style.css") }}
+
+{{ partial "opengraph.html" . -}}
+
+{{- with .Param "app_id" }}
+<meta name="apple-itunes-app" content="app-id={{ . }}">
+{{- end -}}
+
+{{- range .Param "customCSS" -}}
+    {{ partial "resource.html" (dict "context" $ "type" "css" "filename" . ) }}
+{{- end -}}
+
+{{- range .Param "customJS" -}}
+    {{ partial "resource.html" (dict "context" $ "type" "js" "filename" . ) }}
+{{- end -}}
+
+{{- with .Param "apple_touch_icon" }}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ . | absURL }}">
+{{ end -}}
+
+<!-- A partial to be overridden by the user.
+     Place a custom_head.html into your local /layouts/partials directory. -->
+{{- partial "custom_head.html" . -}}

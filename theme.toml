@@ -1,0 +1,14 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Tyblog"
+license = "MIT"
+description = "A blog theme for starting Hugo projects."
+homepage = "https://github.com/wpblogger/hugo-tyblog/"
+tags = []
+features = []
+min_version = "0.81.0"
+
+[author]
+  name = "wpblogger"
+  homepage = "https://build-hugo.site/"

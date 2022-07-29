@@ -1,0 +1,10 @@
+{{/* $currentPage := . }}
+{{ .Page.RelPermalink }}
+{{ "/posts" | relURL */}}
+
+{{/* printf "%#v" .IsMenuCurrent }}
+
+  {{ range .Site.Menus.main.ByWeight }}
+    {{.URL}}
+    {{ if eq .URL $currentPage.Page.RelPermalink }} test {{ end }}
+  {{ end */}}

@@ -1,0 +1,10 @@
+<ul id="menu-main-menu" class="theme-main-nav">
+  {{ $currentPage := . }}
+  {{ range .Site.Menus.main.ByWeight }}
+    <li id="menu-item" class="menu-item{{ if eq .URL $currentPage.Page.RelPermalink }} active{{end}}">
+      <a href="{{ .URL }}" title="{{ .Title }}">
+          {{ .Name }}
+      </a>
+    </li>
+  {{ end }}
+</ul>

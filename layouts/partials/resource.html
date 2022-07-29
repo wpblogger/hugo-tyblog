@@ -1,0 +1,31 @@
+{{- $context := .context -}}
+{{- $resource := slice -}}
+{{- $output := false -}}
+{{- if reflect.IsSlice .filename -}}
+    {{- range .filename -}}
+        {{- $resource = $resource | append ((resources.Get .) | resources.ExecuteAsTemplate . $context) -}}
+    {{- end -}}
+    {{- $output = $resource | resources.Concat "css/styles.css" -}}
+{{- else -}}
+    {{- $output = ((resources.Get .filename) | resources.ExecuteAsTemplate .filename .context) -}}
+{{- end -}}
+
+{{- if $output -}}
+    {{- if hugo.IsProduction -}}
+        {{- $output = $output | resources.Minify -}}
+    {{- end -}}
+    {{- $output = $output | resources.Fingerprint "sha256" -}}
+
+    {{- if eq .type "css" -}}
+        <link rel="stylesheet" href="{{ $output.RelPermalink }}" integrity="{{ $output.Data.Integrity }}">
+    {{- else if eq .type "js" -}}
+        <script src="{{ $output.RelPermalink }}" type="text/javascript" charset="utf-8" integrity="{{ $output.Data.Integrity }}"{{ if .defer }} defer{{ end }}{{ if .async }} async{{ end }}></script>
+    {{ end -}}
+<!-- Failing that, look in static files -->
+{{- else -}}
+    {{- if eq .type "css" -}}
+        <link rel="stylesheet" href="{{ .filename | absURL }}">
+    {{ else if eq .type "js" -}}
+        <script src="{{ .filename | absURL }}" type="text/javascript" charset="utf-8"{{ if .defer }} defer{{ end }}{{ if .async }} async{{ end }}></script>
+    {{ end -}}
+{{- end -}}
