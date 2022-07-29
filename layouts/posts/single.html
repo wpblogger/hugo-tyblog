@@ -1,10 +1,12 @@
 {{ define "main" }}
     <main>
         <article class="theme-post">
-            <header class="entry-header simple-page">
+            <header class="entry-header">
                 <h2 class="entry-title h1"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                {{- partial "post_meta.html" . }}
                 <div class="post-letter">{{substr .Title 0 1}}</div>
             </header>
+            
             <section>{{ .Content }}</section>
         </article>
     </main>

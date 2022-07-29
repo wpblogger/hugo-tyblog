@@ -1,0 +1,28 @@
+{{ define "main" }}
+    <main>
+        {{ with .Title }}<h1>{{ . }}</h1>{{ end -}}
+        {{ with .Content }}
+        <section>
+            {{ . }}
+        </section>
+        {{ end }}
+
+        <section>
+            {{ $pages := where .Pages "Params.hidden" "!=" true}}
+            {{ range (.Paginate $pages).Pages }}
+            <article>
+                <header>
+                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                </header>
+
+                <section>{{ .Summary | safeHTML }}</section>
+
+                <footer>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                </footer>
+            </article>
+            {{- end -}}
+            {{ partial "pagination.html" . }}
+        </section>
+    </main>
+{{ end }}

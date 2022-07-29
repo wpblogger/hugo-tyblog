@@ -1,17 +1,16 @@
 hljs.highlightAll();
 
 function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
+  var rev = document.querySelectorAll(".theme-section");
+  var hd = document.querySelectorAll(".theme-header");
 
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 150;
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
+  for (var i = 0; i < rev.length; i++) {
+    var elementTop = rev[i].getBoundingClientRect().top;
+    console.log('top = ', elementTop);
+    if (elementTop < 0) {
+      hd[i].classList.add("theme-header-stycky");
     } else {
-      reveals[i].classList.remove("active");
+      hd[i].classList.remove("theme-header-stycky");
     }
   }
 }

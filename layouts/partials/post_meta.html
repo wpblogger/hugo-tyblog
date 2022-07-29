@@ -1,11 +1,11 @@
 <div class="entry-meta">
   <div class="meta-item meta-author">
-    By <a href="https://demo.mekshq.com/typology?author_name=meks1">Madison Barnett</a>
+    {{ .Date.Format "Jan 2, 2006" }}
   </div>
   <div class="meta-item meta-category">
-    In <a href="https://demo.mekshq.com/typology/?cat=2" rel="category">Humans</a>
+    {{ .WordCount }} word count
   </div>
   <div class="meta-item meta-rtime">
-    2 Min Read
+    {{ math.Round (div (countwords .Content) 220.0) }} minutes of reading
   </div>
 </div>
