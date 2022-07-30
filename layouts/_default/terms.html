@@ -1,28 +1,38 @@
 {{ define "main" }}
     <main>
-        {{ with .Title }}<h1>{{ . }}</h1>{{ end -}}
-        {{ with .Content }}
-        <section>
-            {{ . }}
-        </section>
-        {{ end }}
-
-        <section>
-            {{ $pages := where .Pages "Params.hidden" "!=" true}}
-            {{ range (.Paginate $pages).Pages }}
-            <article>
-                <header>
-                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <article class="theme-post">
+            {{ $taxonomyName := .Data.Plural }}
+            {{ with .Title }}
+                <header class="entry-header simple-page">
+                    <h2 class="entry-title h1">{{ . }}</h2>
+                    <div class="post-letter">{{substr . 0 1}}</div>
                 </header>
+            {{ end -}}
 
-                <section>{{ .Summary | safeHTML }}</section>
+            {{ with .Content }}
+                <section>
+                    {{ . }}
+                </section>
+            {{ end }}
 
-                <footer>
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-                </footer>
-            </article>
-            {{- end -}}
-            {{ partial "pagination.html" . }}
-        </section>
+            <section>
+                {{ $pages := where .Pages "Params.hidden" "!=" true}}
+                {{ range (.Paginate $pages).Pages }}
+                    <ul class="taxonomy-list {{ $taxonomyName }}">
+                        {{ if (ne .Params.hidden true) }}
+                            <li>
+                                <a href="{{ .RelPermalink }}">
+                                    {{ .Title }}
+                                    {{ with .Param "tags" }}
+                                        ({{ .Count }})
+                                    {{ end }}
+                                </a>
+                            </li>
+                        {{ end }}
+                    </ul>
+                {{- end -}}
+                {{ partial "pagination.html" . }}
+            </section>
+        </article>
     </main>
 {{ end }}

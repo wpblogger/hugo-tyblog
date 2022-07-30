@@ -331,6 +331,7 @@ td:first-child, th:first-child {
    position: relative;
    margin-bottom: 9rem;
    padding-bottom: 10rem;
+   width: 100%;
 }
 
 .theme-post:after {
@@ -482,6 +483,66 @@ td:first-child, th:first-child {
    color: #aaaaaa;
    padding: 0;
    display: block;
+}
+
+.taxonomy-list a {
+   -webkit-transition: all .15s ease-in-out;
+   -moz-transition: all .15s ease-in-out;
+   -ms-transition: all .15s ease-in-out;
+   -o-transition: all .15s ease-in-out;
+   transition: all .15s ease-in-out;
+   text-decoration: none;
+   text-decoration-line: none;
+   text-decoration-thickness: initial;
+   text-decoration-style: initial;
+   text-decoration-color: initial;
+   color: #333333;
+   font-family: 'Josefin Sans';
+   font-weight: 600;
+   font-size: 2rem;
+   text-transform: uppercase;
+}
+
+.taxonomy-list a:hover {
+   color: #c62641;
+}
+
+.taxonomy-head {
+   margin: -12rem 0 8rem;
+}
+
+.taxonomy-head h4 {
+   font-family: 'Domine';
+   color: #c62641;
+}
+
+.taxonomy-list.tags {
+   margin: 0;
+   padding: 0;
+}
+
+.taxonomy-list.tags li{
+   display: inline-block;
+   margin: 0 5px 5px 0;
+}
+
+.taxonomy-list.tags a {
+   color: #ffffff;
+   background: rgb(0 0 0 / 75%);
+   min-width: 160px;
+   font-family: 'Josefin Sans';
+   font-weight: 600;
+   font-size: 1.1rem;
+   line-height: 39px;
+   text-align: center;
+   display: inline-block;
+   text-transform: uppercase;
+}
+
+.taxonomy-list.tags a:hover {
+   background: rgb(0 0 0)
+   -webkit-box-shadow: 0 10px 15px 0 rgb(0 0 0 / 15%);
+   box-shadow: 0 10px 15px 0rgba(0,0,0,.15);
 }
  
 @keyframes fadeIn {

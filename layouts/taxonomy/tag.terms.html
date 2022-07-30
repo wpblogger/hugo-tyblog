@@ -1,0 +1,31 @@
+{{ define "main" }}
+    <main>
+        <article class="theme-post">
+            {{ $taxonomyName := .Data.Plural }}
+            {{ with .Title }}
+                <header class="entry-header simple-page">
+                    <h2 class="entry-title h1">{{ . }}</h2>
+                    <div class="post-letter">{{substr . 0 1}}</div>
+                </header>
+            {{ end -}}
+
+            {{ with .Content }}
+                <section>
+                    {{ . }}
+                </section>
+            {{ end }}
+
+            <section>
+              <ul class="taxonomy-list {{ $taxonomyName }}">
+                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}           
+                  <li>
+                      <a href="/tags/{{ $name | urlize }}">
+                          {{ $name }} ({{ $taxonomy.Count }})
+                      </a>
+                  </li>
+                {{- end -}}
+              </ul>
+            </section>
+        </article>
+    </main>
+{{ end }}

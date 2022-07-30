@@ -6,6 +6,6 @@
     {{ .WordCount }} word count
   </div>
   <div class="meta-item meta-rtime">
-    {{ math.Round (div (countwords .Content) 220.0) }} minutes of reading
+    {{ .ReadingTime }} minutes of reading
   </div>
 </div>

@@ -15,10 +15,6 @@
             </header>
             
             <section>{{ .Summary | safeHTML }}</section>
-
-            <!--footer>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-            </footer-->
         </article>
         {{- end -}}
         {{- partial "pagination.html" . }}
