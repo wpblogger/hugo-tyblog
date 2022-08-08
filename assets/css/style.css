@@ -173,11 +173,20 @@ td:first-child, th:first-child {
    right: 15px;
 }
 
+.slot-r.mbl {
+   display: none;
+}
+
+.slot-r svg {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   cursor: pointer;
+}
+
 .slot-r ul {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
-   vertical-align: center;
 }
 
 .theme-header {
@@ -352,6 +361,17 @@ td:first-child, th:first-child {
    bottom: 0;
    left: 50%;
    margin-left: -25px;
+}
+
+.theme-post section a,
+.popup-data section a {
+   color: #c62641;
+   text-decoration: none;
+}
+
+.theme-post section a:hover,
+.popup-data section a:hover {
+   text-decoration: underline;
 }
 
 .entry-header {
@@ -538,7 +558,7 @@ td:first-child, th:first-child {
 .taxonomy-list.tags a {
    color: #ffffff;
    background: rgb(0 0 0 / 75%);
-   min-width: 160px;
+   padding: 0 2rem;
    font-family: 'Josefin Sans';
    font-weight: 600;
    font-size: 1.1rem;
@@ -637,6 +657,24 @@ td:first-child, th:first-child {
    display: none;
 }
 
+.popup-data .theme-main-nav {
+   list-style: none;
+   margin: 0;
+   padding: 0 2rem;
+}
+
+.popup-data .theme-main-nav li {
+   border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.popup-data .theme-main-nav a {
+   display: block;
+   text-transform: none;
+   color: #444444;
+   text-decoration: none;
+   padding: 1rem 0 1rem;
+}
+
 .close {
    position: absolute;
    right: 58px;
@@ -673,12 +711,15 @@ td:first-child, th:first-child {
       padding: 12rem 0 3rem;
    }
 
-   .slot-r {
-      padding: 1.5rem 0 0;
+   .slot-r.mbl {
+      display: flex;
+   }
+
+   .slot-r.full {
+      display: none;
    }
 
    .slot-l {
-      -webkit-box-align: baseline;
       padding: 1rem 0 0;
    }
 

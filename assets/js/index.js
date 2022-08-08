@@ -32,8 +32,13 @@ function httpGet(theUrl) {
   xmlHttp.open( "GET", theUrl, false );
   xmlHttp.send( null );
   var parser = new DOMParser();
-  var doc = parser.parseFromString(xmlHttp.responseText, 'text/html');
-  return doc.querySelector('main').innerHTML;
+  var doc = parser.parseFromString(xmlHttp.responseText, "text/html");
+  return doc.querySelector("main").innerHTML;
+}
+
+function showMenu() {
+  var data = document.querySelector(".slot-r.full").innerHTML;
+  addContent(data);
 }
 
 function addContent(data) {
@@ -44,7 +49,11 @@ function addContent(data) {
   el = document.getElementById("popupData");
   el.innerHTML = data;
   var head = el.querySelector('h1');
-  document.getElementById("popupHead").innerHTML = "<h1>"+head.innerHTML+"</h1><span class=\"close\" onclick=\"removeContent()\"></span>";
+  if (el.contains(head)) {
+    document.getElementById("popupHead").innerHTML = "<h1>"+head.innerHTML+"</h1><span class=\"close\" onclick=\"removeContent()\"></span>";
+  } else {
+    document.getElementById("popupHead").innerHTML = "<h1>Menu</h1><span class=\"close\" onclick=\"removeContent()\"></span>";
+  }
   el = document.getElementById("popupOverlay");
   document.body.classList.add("lock");
 }
