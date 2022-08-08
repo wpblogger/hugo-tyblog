@@ -44,9 +44,9 @@ function addContent(data) {
   el = document.getElementById("popupData");
   el.innerHTML = data;
   var head = el.querySelector('h1');
-  console.log(head);
   document.getElementById("popupHead").innerHTML = "<h1>"+head.innerHTML+"</h1><span class=\"close\" onclick=\"removeContent()\"></span>";
   el = document.getElementById("popupOverlay");
+  document.body.classList.add("lock");
 }
 
 function removeContent() {
@@ -56,4 +56,5 @@ function removeContent() {
   el.classList.remove("active");
   el = document.getElementById("popupData");
   el.innerHTML = "";
+  document.body.classList.remove("lock");
 }
