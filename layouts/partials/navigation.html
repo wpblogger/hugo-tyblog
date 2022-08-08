@@ -2,7 +2,7 @@
   {{ $currentPage := . }}
   {{ range .Site.Menus.main.ByWeight }}
     <li id="menu-item" class="menu-item{{ if eq .URL $currentPage.Page.RelPermalink }} active{{end}}">
-      <a href="{{ .URL }}" title="{{ .Name }}" {{ if eq .Params.sidebar true }}data="{{ .Name }}"{{ end }}>
+      <a href="{{ .URL }}" title="{{ .Name }}" {{ if eq .Params.sidebar true }}id="popup-btn"{{ end }}>
           {{ .Name }}
       </a>
     </li>

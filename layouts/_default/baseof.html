@@ -2,6 +2,11 @@
 <html>
 {{- partial "head.html" . }}
 <body>
+    <div class="popup-content" id="popupContent">
+        <div class="popup-head" id="popupHead"></div>
+        <div class="popup-data" id="popupData"></div>
+    </div>
+    <div class="popup-overlay" id="popupOverlay" onclick="removeContent()"></div>
     {{ partial "header.html" . }}
     <div class="theme-fake-bg">
         <div class="theme-section">
