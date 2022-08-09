@@ -13,11 +13,12 @@
             <div class="section-content">
                 {{- block "main" . }}{{- end }}
             </div>
-            {{- block "footer" . }}
-                <footer class="theme-footer">
-                </footer>
-            {{- end -}}
         </div>
+        {{- block "footer" . }}
+            <footer class="theme-footer">
+                {{ partial "footer.html" . }}
+            </footer>
+        {{- end -}}
     </div>
     {{- partial "custom_body.html" . -}}
 </body>

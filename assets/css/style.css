@@ -234,12 +234,12 @@ td:first-child, th:first-child {
 .site-title {
    text-transform: uppercase;
    margin: 0;
-   height: 40px;
 }
 
 .site-title a {
    color: #ffffff;
    text-decoration: none;
+   text-shadow: 0px 0px 3px #750a1c;
 }
 
 .theme-main-navigation {
@@ -329,7 +329,7 @@ td:first-child, th:first-child {
     max-width: 1170px;
     margin: 0 auto 10rem;
     width: 95%;
-    padding: 16rem 0 15rem;
+    padding: 16rem 0 6rem;
 }
 
 .section-content {
@@ -363,14 +363,18 @@ td:first-child, th:first-child {
    margin-left: -25px;
 }
 
+main section a,
 .theme-post section a,
-.popup-data section a {
+.popup-data section a,
+.theme-footer a {
    color: #c62641;
    text-decoration: none;
 }
 
+main section a:hover,
 .theme-post section a:hover,
-.popup-data section a:hover {
+.popup-data section a:hover,
+.theme-footer a:hover {
    text-decoration: underline;
 }
 
@@ -512,6 +516,28 @@ td:first-child, th:first-child {
    color: #aaaaaa;
    padding: 0;
    display: block;
+   position: absolute;
+   bottom: -99px;
+   left: 15px;
+   right: 15px;
+}
+
+.theme-footer .head {
+   color: #ffffff;
+   background: #c62641;
+   display: initial;
+   margin: 0 0 0.7rem;
+   padding: 0.25rem 0.5rem;
+   font-size: 2rem;
+   text-shadow: 0px 0px 3px #750a1c;
+   text-transform: uppercase;
+   font-weight: 300;
+}
+
+.theme-footer p {
+   line-height: 1.2;
+   font-size: 1.3rem;
+   color: #888888;
 }
 
 .taxonomy-list a {
@@ -525,7 +551,6 @@ td:first-child, th:first-child {
    text-decoration-thickness: initial;
    text-decoration-style: initial;
    text-decoration-color: initial;
-   color: #333333;
    font-family: 'Josefin Sans';
    font-weight: 600;
    font-size: 2rem;
@@ -721,6 +746,10 @@ td:first-child, th:first-child {
 
    .slot-l {
       padding: 1rem 0 0;
+   }
+
+   .site-title {
+      height: 40px;
    }
 
    .theme-site-branding {
