@@ -297,6 +297,22 @@ td:first-child, th:first-child {
    box-shadow: 0 10px 15px 0rgba(0,0,0,.15);
 }
 
+.menu-btn-search {
+   padding: 14px 14px 13px;
+}
+
+.menu-btn-search img {
+   height: 10px;
+}
+
+.search-string input {
+   border: solid 1px #b2223a;
+   width: calc(100% - 2.4rem);
+   height: 3rem;
+   font-size: 1.6rem;
+   padding: 0 1.2rem;
+}
+
 .theme-cover {
    background: #c62641;
    height: 209px;

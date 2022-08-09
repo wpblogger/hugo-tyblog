@@ -67,3 +67,73 @@ function removeContent() {
   el.innerHTML = "";
   document.body.classList.remove("lock");
 }
+
+var fuse;
+var timeout = null;
+var loadSearchData = false;
+
+function searchPanel(event) {
+  event.preventDefault();
+  var data = "<h1>Search</h1><div class=\"search-string\"><input type=\"string\" onkeyup=\"startSearch(this.value)\" /></div><div id=\"searchResult\" class=\"search-result\"></div>";
+  addContent(data);
+  if (!loadSearchData) loadSearch();
+}
+
+function startSearch(value) {
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    executeSearch(value);
+  }, 500);
+}
+
+function fetchJSONFile(path, callback) {
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() {
+    if (httpRequest.readyState === 4) {
+      if (httpRequest.status === 200) {
+        var data = JSON.parse(httpRequest.responseText);
+          if (callback) callback(data);
+      }
+    }
+  };
+  httpRequest.open('GET', path);
+  httpRequest.send(); 
+}
+
+function loadSearch() { 
+  fetchJSONFile('/index.json', function(data){
+
+    var options = {
+      shouldSort: true,
+      location: 0,
+      distance: 100,
+      threshold: 0.4,
+      minMatchCharLength: 2,
+      keys: [
+        'title',
+        'contents'
+        ]
+    };
+
+    fuse = new Fuse(data, options);
+    loadSearchData = true;
+  });
+}
+
+function executeSearch(term) {
+  if (!loadSearchData) return;
+  let results = fuse.search(term);
+  let searchitems = '';
+
+  if (results.length > 0) {
+    searchitems = '<ul>';
+    for (let item in results.slice(0,5)) {
+      let data = results[item].item;
+      if (data.contents.length > 200) data.contents = data.contents.slice(0,200) + '...';
+      searchitems = searchitems + '<li><a href="' + data.permalink + '" tabindex="0">' + '<h3 class="title">' + data.title + '</h3></a><p class="sc">'+ data.contents +'</p></li>';
+    }
+    searchitems = searchitems + '</ul>';
+  }
+
+  document.getElementById("searchResult").innerHTML = searchitems;
+}
