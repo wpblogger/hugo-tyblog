@@ -4,6 +4,7 @@
 <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.basic.min.js"></script>
 
 {{ $js := resources.Get "js/index.js" }}
 {{ $secureJS := $js | resources.Fingerprint "sha256" }}

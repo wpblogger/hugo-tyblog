@@ -1,7 +1,7 @@
 <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
 {{ with .Site.Params.favicon -}}
-<link rel="shortcut icon" href="{{ . | absURL }}" type="image/png">
+  <link rel="shortcut icon" href="{{ . | absURL }}" type="image/png">
 {{ end -}}
 
 <meta name="generator" content="Hugo {{ hugo.Version }}">
@@ -9,13 +9,15 @@
 
 <meta name="referrer" content="no-referrer-when-downgrade">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 {{ if and (.IsPage) (eq .Params.hidden true) -}}
-<meta name="robots" content="noindex">
+  <meta name="robots" content="noindex">
 {{ end -}}
 
 {{ range .Param "preloadFonts" }}
-<link rel="preload" href="{{ . }}" as="font">
+  <link rel="preload" href="{{ . }}" as="font">
 {{- end }}
+
 <link rel="canonical" href="{{ .Permalink }}">
 
 {{ with .OutputFormats.Get "rss" -}}
@@ -27,7 +29,7 @@
 {{ partial "opengraph.html" . -}}
 
 {{- with .Param "app_id" }}
-<meta name="apple-itunes-app" content="app-id={{ . }}">
+  <meta name="apple-itunes-app" content="app-id={{ . }}">
 {{- end -}}
 
 {{- range .Param "customCSS" -}}
@@ -39,7 +41,7 @@
 {{- end -}}
 
 {{- with .Param "apple_touch_icon" }}
-<link rel="apple-touch-icon" sizes="180x180" href="{{ . | absURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ . | absURL }}">
 {{ end -}}
 
 <!-- A partial to be overridden by the user.

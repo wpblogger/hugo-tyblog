@@ -240,6 +240,8 @@ td:first-child, th:first-child {
    color: #ffffff;
    text-decoration: none;
    text-shadow: 0px 0px 3px #750a1c;
+   font-family: 'Domine';
+   font-weight: 400;
 }
 
 .theme-main-navigation {
@@ -501,6 +503,7 @@ main section a:hover,
    background: rgb(0 0 0);
    -webkit-box-shadow: 0 10px 15px 0 rgb(0 0 0 / 15%);
    box-shadow: 0 10px 15px 0rgba(0,0,0,.15);
+   text-decoration: none;
 }
 
 .pagination a.nav-left {
@@ -597,6 +600,7 @@ main section a:hover,
    background: rgb(0 0 0);
    -webkit-box-shadow: 0 10px 15px 0 rgb(0 0 0 / 15%);
    box-shadow: 0 10px 15px 0 rgb(0,0,0,.15);
+   text-decoration: none;
 }
 
 .popup-overlay {
