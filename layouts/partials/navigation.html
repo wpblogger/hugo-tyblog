@@ -1,13 +1,13 @@
 <ul id="menu-main-menu" class="theme-main-nav">
   {{ $currentPage := . }}
   {{ range .Site.Menus.main.ByWeight }}
-    <li id="menu-item" class="menu-item{{ if eq .URL $currentPage.Page.RelPermalink }} active{{end}}">
-      <a href="{{ .URL }}" title="{{ .Name }}" {{ if eq .Params.sidebar true }}id="popup-btn"{{ end }}>
+    <li class="menu-item{{ if eq .URL $currentPage.Page.RelPermalink }} active{{end}}">
+      <a href="{{ .URL }}" {{ if eq .Params.sidebar true }}id="popup-btn"{{ end }}>
           {{ .Name }}
       </a>
     </li>
   {{ end }}
-  <li id="menu-item" class="menu-item">
+  <li id="menuSearch" class="menu-item menu-search">
     <a href="#" class="menu-btn-search" onclick="searchPanel(event)"><img src="/img/search.png" /></a>
   </li>
 </ul>

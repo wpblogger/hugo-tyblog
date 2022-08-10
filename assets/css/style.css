@@ -297,6 +297,10 @@ td:first-child, th:first-child {
    box-shadow: 0 10px 15px 0rgba(0,0,0,.15);
 }
 
+.popup-content .menu-search {
+   display: none;
+}
+
 .menu-btn-search {
    padding: 14px 14px 13px;
 }
@@ -311,6 +315,24 @@ td:first-child, th:first-child {
    height: 3rem;
    font-size: 1.6rem;
    padding: 0 1.2rem;
+}
+
+.search-result {
+   padding: 3rem 0 1rem;
+}
+
+.search-result ul {
+   list-style: none;
+   padding: 0;
+}
+
+.search-result ul a {
+   color: #c62641;
+   text-decoration: none;
+}
+
+.search-result ul a:hover {
+   text-decoration: underline;
 }
 
 .theme-cover {

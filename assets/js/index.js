@@ -39,6 +39,7 @@ function httpGet(theUrl) {
 function showMenu() {
   var data = document.querySelector(".slot-r.full").innerHTML;
   addContent(data);
+  document.getElementById("menu-main-menu").innerHTML += '<li class="menu-item"><a href="#" onclick="searchPanel(event)">Search</a></li>';
 }
 
 function addContent(data) {
@@ -74,9 +75,10 @@ var loadSearchData = false;
 
 function searchPanel(event) {
   event.preventDefault();
-  var data = "<h1>Search</h1><div class=\"search-string\"><input type=\"string\" onkeyup=\"startSearch(this.value)\" /></div><div id=\"searchResult\" class=\"search-result\"></div>";
+  var data = "<h1>Search</h1><div class=\"search-string\"><input type=\"string\" onkeyup=\"startSearch(this.value)\" id=\"searchInput\" /></div><div id=\"searchResult\" class=\"search-result\"></div>";
   addContent(data);
   if (!loadSearchData) loadSearch();
+  document.getElementById("searchInput").focus();
 }
 
 function startSearch(value) {
@@ -130,9 +132,11 @@ function executeSearch(term) {
     for (let item in results.slice(0,5)) {
       let data = results[item].item;
       if (data.contents.length > 200) data.contents = data.contents.slice(0,200) + '...';
-      searchitems = searchitems + '<li><a href="' + data.permalink + '" tabindex="0">' + '<h3 class="title">' + data.title + '</h3></a><p class="sc">'+ data.contents +'</p></li>';
+      searchitems = searchitems + '<li><a href="' + data.permalink + '" class="title h3">' + data.title + '</a><p class="sc">'+ data.contents +'</p></li>';
     }
     searchitems = searchitems + '</ul>';
+  } else {
+    searchitems = '<h5>Nothing found for your request</h5>';
   }
 
   document.getElementById("searchResult").innerHTML = searchitems;
