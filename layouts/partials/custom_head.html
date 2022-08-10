@@ -9,3 +9,4 @@
 {{ $js := resources.Get "js/index.js" }}
 {{ $secureJS := $js | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+<script type="text/javascript">var menuSearchName = '{{ i18n "menu_search_name" }}';</script>

@@ -1,0 +1,50 @@
+[newer_posts]
+  other = "Newer posts"
+
+[older_posts]
+  other = "Older posts"
+
+[menu_search_name]
+  other = "Search"
+
+[wordCount]
+  other = "{{ .Count }} word count"
+
+[readingTime]
+  other = "{{ .Count }} minutes of reading"
+
+[January]
+  other = "Jan"
+
+[February]
+  other = "Feb"
+
+[March]
+  other = "Mar"
+
+[April]
+  other = "Apr"
+
+[May]
+  other = "May"
+
+[June]
+  other = "Jun"
+
+[July]
+  other = "Jul"
+
+[August]
+  other = "Aug"
+
+[September]
+  other = "Sep"
+
+[October]
+  other = "Oct"
+
+[November]
+  other = "Nov"
+
+[December]
+  other = "Dec"

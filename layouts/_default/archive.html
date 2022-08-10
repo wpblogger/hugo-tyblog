@@ -25,7 +25,13 @@
                 {{ if (ne .Params.hidden true) }}
                   <li>
                     <a href="{{ .RelPermalink }}">
-                      <span>{{ .Date.Format "02 Jan" }}</span> — {{ .Title }}
+                      <span>
+                        {{ if eq .Site.Language.Lang "ru" }}
+                          {{ .Date.Day }} {{ i18n .Date.Month }}.
+                        {{ else }}
+                          {{ i18n .Date.Month }}. {{ .Date.Day }}
+                        {{ end }}
+                      </span> — {{ .Title }}
                     </a>
                   </li>
                 {{ end }}

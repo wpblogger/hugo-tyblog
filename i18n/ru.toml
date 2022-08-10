@@ -1,0 +1,51 @@
+[newer_posts]
+  other = "Новые"
+
+[older_posts]
+  other = "Старые"
+
+[menu_search_name]
+  other = "Поиск"
+
+[wordCount]
+  one = "{{ .Count }} слово"
+  other = "{{ .Count }} слов"
+
+[readingTime]
+  other = "{{ .Count }} мин. чтения"
+
+[January]
+  other = "Янв"
+
+[February]
+  other = "Фев"
+
+[March]
+  other = "Мар"
+
+[April]
+  other = "Апр"
+
+[May]
+  other = "Май"
+
+[June]
+  other = "Июн"
+
+[July]
+  other = "Июл"
+
+[August]
+  other = "Авг"
+
+[September]
+  other = "Сен"
+
+[October]
+  other = "Окт"
+
+[November]
+  other = "Нояб"
+
+[December]
+  other = "Дек"

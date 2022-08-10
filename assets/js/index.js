@@ -39,7 +39,7 @@ function httpGet(theUrl) {
 function showMenu() {
   var data = document.querySelector(".slot-r.full").innerHTML;
   addContent(data);
-  document.getElementById("menu-main-menu").innerHTML += '<li class="menu-item"><a href="#" onclick="searchPanel(event)">Search</a></li>';
+  document.getElementById("menu-main-menu").innerHTML += '<li class="menu-item"><a href="#" onclick="searchPanel(event)">' + menuSearchName + '</a></li>';
 }
 
 function addContent(data) {
@@ -75,7 +75,7 @@ var loadSearchData = false;
 
 function searchPanel(event) {
   event.preventDefault();
-  var data = "<h1>Search</h1><div class=\"search-string\"><input type=\"string\" onkeyup=\"startSearch(this.value)\" id=\"searchInput\" /></div><div id=\"searchResult\" class=\"search-result\"></div>";
+  var data = "<h1>" + menuSearchName + "</h1><div class=\"search-string\"><input type=\"string\" onkeyup=\"startSearch(this.value)\" id=\"searchInput\" /></div><div id=\"searchResult\" class=\"search-result\"></div>";
   addContent(data);
   if (!loadSearchData) loadSearch();
   document.getElementById("searchInput").focus();

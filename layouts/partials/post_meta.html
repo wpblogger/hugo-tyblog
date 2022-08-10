@@ -1,11 +1,15 @@
 <div class="entry-meta">
   <div class="meta-item meta-author">
-    {{ .Date.Format "Jan 2, 2006" }}
+    {{ if eq .Site.Language.Lang "ru" }}
+      {{ .Date.Format "02.01.2006" }}
+    {{ else }}
+     {{ i18n .Date.Month }}. {{ .Date.Day }}, {{ .Date.Year }}
+    {{ end }}
   </div>
   <div class="meta-item meta-category">
-    {{ .WordCount }} word count
+    {{ T "wordCount" .WordCount }}
   </div>
   <div class="meta-item meta-rtime">
-    {{ .ReadingTime }} minutes of reading
+    {{ T "readingTime" .ReadingTime }}
   </div>
 </div>
