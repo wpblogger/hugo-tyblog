@@ -581,6 +581,10 @@ main section a:hover,
    color: #888888;
 }
 
+.taxonomy-list {
+   list-style: none;
+}
+
 .taxonomy-list a {
    -webkit-transition: all .15s ease-in-out;
    -moz-transition: all .15s ease-in-out;
@@ -598,8 +602,26 @@ main section a:hover,
    text-transform: uppercase;
 }
 
+.taxonomy-list a span {
+   color: #fff;
+   background: rgb(0 0 0/75%);
+   padding: 0.5rem 1rem;
+   font-family: josefin sans;
+   font-size: 1.5rem;
+   font-weight: 600;
+   line-height: 1.2;
+   text-align: center;
+   margin: 0 6px 0 0;
+   display: inline-block;
+   min-width: 6rem;
+}
+
 .taxonomy-list a:hover {
    color: #c62641;
+}
+
+.taxonomy-list a:hover span {
+   background: #000;
 }
 
 .taxonomy-head {
