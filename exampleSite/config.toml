@@ -1,0 +1,100 @@
+baseURL = 'https://hugo-tyblog.netlify.app/'
+languageCode = 'en-us'
+title = 'Demo Site'
+theme = 'hugo-tyblog'
+themesDir = '../../'
+paginate = 3
+enableRobotsTXT = true
+defaultContentLanguage = 'en'
+
+[params]
+  description = 'best blog'
+  keywords = 'blog,travel,food,coffee,bread'
+  favicon = '/img/favicon.png'
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[languages]
+  [languages.en]
+    [[languages.en.menu.main]]
+      identifier = 'about'
+      name = 'About'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/about/'
+      weight = 25
+      [languages.en.menu.main.params]
+        sidebar = true
+    [[languages.en.menu.main]]
+      identifier = 'example'
+      name = 'Single Page'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/example/'
+      weight = 20
+    [[languages.en.menu.main]]
+      identifier = 'tags'
+      name = 'Tags'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/tags/'
+      weight = 15
+    [[languages.en.menu.main]]
+      identifier = 'categories'
+      name = 'Categories'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/categories/'
+      weight = 10
+    [[languages.en.menu.main]]
+      identifier = 'archive'
+      name = 'Archive'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/archive/'
+      weight = 5
+    [[languages.en.menu.main]]
+      identifier = 'home'
+      name = 'Home'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/'
+      weight = 1
+  [language.ru]
+    [[languages.ru.menu.main]]
+      identifier = 'about'
+      name = 'О нас'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/about/'
+      weight = 25
+      [languages.ru.menu.main.params]
+        sidebar = true
+    [[languages.ru.menu.main]]
+      identifier = 'example'
+      name = 'Страница'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/example/'
+      weight = 20
+    [[languages.ru.menu.main]]
+      identifier = 'tags'
+      name = 'Метки'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/tags/'
+      weight = 15
+    [[languages.ru.menu.main]]
+      identifier = 'categories'
+      name = 'Категории'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/categories/'
+      weight = 10
+    [[languages.ru.menu.main]]
+      identifier = 'archive'
+      name = 'Архив'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/archive/'
+      weight = 5
+    [[languages.ru.menu.main]]
+      identifier = 'home'
+      name = 'Главная'
+      pre = "<i class='fa fa-heart'></i>"
+      url = '/'
+      weight = 1

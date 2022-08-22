@@ -115,7 +115,26 @@ blockquote::before {
    line-height: 6rem;
 }
 
-table, td, th {
+table {
+	border-collapse: collapse;
+}
+table td, table th {
+	padding: 10px 15px;
+}
+table th {
+	background-color: #dcdcdc;
+}
+table th, table td {
+	border: 1px solid #54585d;
+}
+table tbody tr {
+	background-color: #f9fafb;
+}
+table tbody tr:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+/* table, td, th {
    border-color: rgba(68,68,68,0.3);
 }
 
@@ -131,7 +150,7 @@ td, th {
 
 td:first-child, th:first-child {
    border-left: 1px solid;
-}
+} */
 
 .container {
    margin-left: auto;
@@ -789,6 +808,15 @@ main section a:hover,
 }
 .close:after {
    transform: rotate(-45deg);
+}
+
+.about_avatar {
+   text-align: center;
+}
+
+.about_avatar img {
+   width: 150px;
+   border-radius: 50%;
 }
 
 @media (max-width: 768px) {
